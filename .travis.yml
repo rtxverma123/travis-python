@@ -1,0 +1,9 @@
+language: python
+services: 
+   - docker
+
+script: 
+   - docker build -t rtxverma123/flasktravis .
+   - docker images
+   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+   - docker push rtxverma123/flasktravis
